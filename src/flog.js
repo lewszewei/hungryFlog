@@ -27,15 +27,15 @@ var Flog = cc.Sprite.extend({
             }, this)
         }
 
-        if (cc.sys.capabilities.hasOwnProperty('accelerometer')) {
+        if (cc.sys.capabilities.hasOwnProperty('accelerometer') && cc.sys.isMobile) {
             cc.inputManager.setAccelerometerInterval( 1 / 10 );
             cc.inputManager.setAccelerometerEnabled(true);
             cc.eventManager.addListener({
                 event: cc.EventListener.ACCELERATION,
-                callback: function(event)
+                callback: function(event, target)
                 {
                     var FilteringFactor = 0.75;
-                    var flog = event.getCurrentTarget();
+                    var flog = target._currentTarget;
                     flog.accelX = event.x * FilteringFactor + flog.accelX * (1.0 - FilteringFactor);
                     var radius = flog.accelX * 90;
                     radius = radius > 90 ? 90 : radius;
