@@ -35,7 +35,7 @@ var Flog = cc.Sprite.extend({
                 callback: function(event, target)
                 {
                     var FilteringFactor = 0.75;
-                    var flog = target._currentTarget;
+                    var flog = target.getCurrentTarget();
                     flog.accelX = event.x * FilteringFactor + flog.accelX * (1.0 - FilteringFactor);
                     var radius = flog.accelX * 90;
                     radius = radius > 90 ? 90 : radius;
