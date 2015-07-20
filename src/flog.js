@@ -41,7 +41,6 @@ var Flog = cc.Sprite.extend({
                     radius = radius > 90 ? 90 : radius;
                     radius = radius < -90 ? -90 : radius;
                     flog.head.rotation = -radius;
-                    cc.log('Accel X: ' + event.x + ' Y: ' + event.y + ' Z: ' + event.z);
                 }
             }, this);
         }
