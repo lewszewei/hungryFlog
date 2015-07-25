@@ -16,6 +16,9 @@ var GameLayer = cc.Layer.extend({
         var ranY = this.size.height;
         bug.setPosition(ranX, ranY);
         this.addChild(bug);
+    },
+    removeBug: function(bug) {
+        this.removeChild(bug)
     }
 });
 
